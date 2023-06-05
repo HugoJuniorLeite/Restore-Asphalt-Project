@@ -37,10 +37,12 @@
   "name": "restore-asphalt-project",
   "description": "Restore Asphalt Project API",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts"
+    "dev": "NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts",
+    "start": "node dist/server.js",
+    "dev:load-envs": "dotenv -e .env.development"
   },
   "keywords": [],
   "author": "",

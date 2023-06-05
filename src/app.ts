@@ -7,23 +7,18 @@ import { loadEnv, connectDb, disconnectDB } from './config';
 loadEnv();
 
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
-// import {
-//   usersRouter,
-//   authenticationRouter,
-//   eventsRouter,
-//   enrollmentsRouter,
-//   ticketsRouter,
-//   paymentsRouter,
-//   hotelsRouter
-// } from '@/routers';
+ import {
+   authenticationRouter,
+   usersRouter,
+ } from './routers/index';
 
 const app = express();
 app
   .use(cors())
   .use(express.json())
   .get('/health', (_req, res) => res.send('OK!'))
-  // .use('/users', usersRouter)
-  // .use('/auth', authenticationRouter)
+   .use('/users', usersRouter)
+   .use('/auth', authenticationRouter)
   // .use('/event', eventsRouter)
   // .use('/enrollments', enrollmentsRouter)
   // .use('/tickets', ticketsRouter)
