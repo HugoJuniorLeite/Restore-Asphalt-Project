@@ -1,2 +1,2 @@
-export * from './users-schemas';
-export * from './authentication-schemas';
+export * from '@/schemas/users-schemas';
+export * from '@/schemas/authentication-schemas';

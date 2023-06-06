@@ -32,21 +32,21 @@ export type RequestError = {
 
 //export type CreateTicketParams = Omit<Ticket, 'id' | 'createdAt' | 'updatedAt'>;
 
-export type CardPaymentParams = {
-  issuer: string;
-  number: number;
-  name: string;
-  expirationDate: Date;
-  cvv: number;
-};
+// export type CardPaymentParams = {
+//   issuer: string;
+//   number: number;
+//   name: string;
+//   expirationDate: Date;
+//   cvv: number;
+// };
 
 //export type PaymentParams = Omit<Payment, 'id' | 'createdAt' | 'updatedAt'>;
 
-export type InputTicketBody = {
-  ticketTypeId: number;
-};
+// export type InputTicketBody = {
+//   ticketTypeId: number;
+// };
 
 
-export type InputHotelBody = {
-  hotelId: number;
-};
+// export type InputHotelBody = {
+//   hotelId: number;
+// };

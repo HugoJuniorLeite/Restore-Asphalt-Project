@@ -3,14 +3,14 @@ import 'express-async-errors';
 import express, { Express } from 'express';
 import cors from 'cors';
 
-import { loadEnv, connectDb, disconnectDB } from './config';
+import { loadEnv, connectDb, disconnectDB } from '@/config';
 loadEnv();
 
-import { handleApplicationErrors } from './middlewares/error-handling-middleware';
+import { handleApplicationErrors } from '@/middlewares';
  import {
    authenticationRouter,
    usersRouter,
- } from './routers/index';
+ } from '@/routers';
 
 const app = express();
 app

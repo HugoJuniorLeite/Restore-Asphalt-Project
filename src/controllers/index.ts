@@ -1,2 +1,2 @@
-export * from './users-controller';
-export * from './authentication-controller';
+export * from '@/controllers/users-controller';
+export * from '@/controllers/authentication-controller';

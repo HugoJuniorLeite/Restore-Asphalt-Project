@@ -1,2 +1,2 @@
-export * from './users-router';
-export * from './authentication-router';
+export * from '@/routers/users-router';
+export * from '@/routers/authentication-router';

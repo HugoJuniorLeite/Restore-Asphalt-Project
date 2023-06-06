@@ -1,10 +1,10 @@
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { invalidCredentialsError } from "./errors";
-import sessionRepository from "../../repositories/session-repository";
-import userRepository from "../../repositories/user-repository";
-import { exclude } from "../../utils/prisma-utils";
+import { invalidCredentialsError } from "@/services/authentication-service/errors";
+import sessionRepository from "@/repositories/session-repository";
+import userRepository from "@/repositories/user-repository";
+import { exclude } from "@/utils/prisma-utils";
 
 async function signIn(params: SignInParams): Promise<SignInResult> {
   const { email, password } = params;
@@ -22,7 +22,7 @@ async function signIn(params: SignInParams): Promise<SignInResult> {
 }
 
 async function getUserOrFail(email: string): Promise<GetUserOrFailResult> {
-  const user = await userRepository.findByEmail(email, { id: true, email: true, password: true });
+  const user = await userRepository.findByEmail(email, { id: true, email: true, password: true, userType:true });
   if (!user) throw invalidCredentialsError();
 
   return user;

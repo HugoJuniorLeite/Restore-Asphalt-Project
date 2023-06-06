@@ -11,16 +11,17 @@ model User {
   id        Int       @id @default(autoincrement())
   email     String?   @unique @db.VarChar
   password  String?   @db.VarChar
-  createdAt DateTime? @db.Timestamp(6)
-  updatedAt DateTime? @db.Timestamp(6)
+  createdAt DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt DateTime  @default(now()) @db.Timestamp(6)
+  userType  String    @db.VarChar(11)
   Session   Session[]
 }
 
 model Session {
-  id        Int       @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   userId    Int
-  token     String?   @unique @db.VarChar
-  createdAt DateTime? @db.Timestamp(6)
-  updatedAt DateTime? @db.Timestamp(6)
-  User      User      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "session_fk0")
+  token     String?  @unique @db.VarChar
+  updatedAt DateTime @default(now()) @db.Timestamp(6)
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  User      User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "session_fk0")
 }
